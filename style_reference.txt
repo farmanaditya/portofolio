@@ -1,0 +1,163 @@
+You are an expert frontend engineer and UI/UX designer. Build a web UI using the "Ethereum DeFi" design system described below.
+
+Design Philosophy
+A sophisticated fusion of precision engineering and cryptographic trust. Deep cosmic void where data glows with Ethereum indigo and electric blue. Not generic dark mode — it's institutional-grade DeFi: secure, technical, and premium.
+Core principles: Luminescent energy from interactive elements. Mathematical precision with 1px borders. Layered depth via glass morphism. Textured void backgrounds. Trust through high contrast and clear hierarchy.
+
+Color Tokens
+Support both dark mode and light mode using CSS custom properties.
+css/* Dark Mode (default) */
+:root {
+  --btc-bg: #030304;
+  --btc-surface: #0F1115;
+  --btc-surface2: #161B22;
+  --btc-fg: #FFFFFF;
+  --btc-muted: #94A3B8;
+  --btc-border: rgba(255, 255, 255, 0.1);
+  --btc-border-hover: rgba(98, 126, 234, 0.5);
+  --btc-primary: #627EEA;
+  --btc-secondary: #3B5BDB;
+  --btc-accent: #A5B4FC;
+  --btc-shadow-btn: 0 0 20px -5px rgba(59, 91, 219, 0.5);
+  --btc-shadow-btn-hover: 0 0 30px -5px rgba(98, 126, 234, 0.6);
+  --btc-shadow-card: 0 0 50px -10px rgba(98, 126, 234, 0.1);
+  --btc-shadow-glow-accent: 0 0 20px rgba(165, 180, 252, 0.3);
+  --btc-grid-line: rgba(30, 41, 59, 0.5);
+}
+
+/* Light Mode */
+[data-theme="light"] {
+  --btc-bg: #F8F6F2;
+  --btc-surface: #FFFFFF;
+  --btc-surface2: #F1EDE6;
+  --btc-fg: #0F1115;
+  --btc-muted: #64748B;
+  --btc-border: rgba(15, 17, 21, 0.1);
+  --btc-border-hover: rgba(98, 126, 234, 0.6);
+  --btc-primary: #627EEA;
+  --btc-secondary: #3B5BDB;
+  --btc-accent: #818CF8;
+  --btc-shadow-btn: 0 4px 16px -4px rgba(59, 91, 219, 0.4);
+  --btc-shadow-btn-hover: 0 6px 24px -4px rgba(98, 126, 234, 0.5);
+  --btc-shadow-card: 0 4px 24px -4px rgba(98, 126, 234, 0.08), 0 1px 4px rgba(0, 0, 0, 0.06);
+  --btc-shadow-glow-accent: 0 4px 16px rgba(129, 140, 248, 0.25);
+  --btc-grid-line: rgba(15, 17, 21, 0.06);
+}
+Gradient formula:
+
+Primary CTA: linear-gradient(to right, #3B5BDB, #627EEA)
+Text highlight: linear-gradient(to right, #627EEA, #A5B4FC)
+
+
+Typography
+css@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.font-heading { font-family: 'Space Grotesk', sans-serif; }
+.font-body    { font-family: 'Inter', sans-serif; }
+.font-mono    { font-family: 'JetBrains Mono', monospace; }
+Hero headline: text-4xl sm:text-5xl md:text-7xl, last 1–2 words use gradient text. Section titles: text-2xl md:text-4xl. Uppercase mono labels get tracking-wider.
+
+Components
+Buttons — pill-shaped (border-radius: 9999px), emit colored light:
+
+Primary: gradient background #3B5BDB → #627EEA, white bold uppercase text, box-shadow: var(--btc-shadow-btn), hover scale(1.05) + intensified shadow
+Outline: transparent bg, border: 2px solid var(--btc-border), hover border-color: white + bg white/10
+Ghost: transparent, hover bg white/10 + color var(--btc-primary)
+Min height 44px, transition: all 0.3s
+
+Cards — floating blocks above the void:
+
+Background: var(--btc-surface), border: 1px solid var(--btc-border), border-radius: 16px, padding 2rem
+Hover: translateY(-4px) + border-color: var(--btc-border-hover) + box-shadow: var(--btc-shadow-card)
+Glass variant: background: rgba(0,0,0,0.4), backdrop-filter: blur(12px), border: 1px solid var(--btc-border)
+
+Inputs — data terminal aesthetic:
+
+Background: var(--btc-input-bg), bottom border only: border-bottom: 2px solid var(--btc-border), height 48px
+Focus: border-bottom-color: var(--btc-primary) + box-shadow: 0 8px 20px -10px rgba(98,126,234,0.3)
+Placeholder: color: var(--btc-muted), opacity 50%
+
+Icon containers — holographic node effect:
+
+background: rgba(59,91,219,0.15), border: 1px solid rgba(59,91,219,0.4), border-radius: 8px, padding 0.75rem
+Hover: box-shadow: 0 0 20px rgba(59,91,219,0.4)
+
+Badges — monospace, pill-shaped:
+
+Primary: background: rgba(98,126,234,0.15), color: var(--btc-primary), border: 1px solid rgba(98,126,234,0.3)
+Accent: background: rgba(165,180,252,0.12), color: var(--btc-accent), border: 1px solid rgba(165,180,252,0.25)
+Pulsing live dot: animation: ping 1.5s ease-out infinite
+
+
+Background & Textures
+Grid pattern (hero section):
+cssbackground-image:
+  linear-gradient(to right, var(--btc-grid-line) 1px, transparent 1px),
+  linear-gradient(to bottom, var(--btc-grid-line) 1px, transparent 1px);
+background-size: 50px 50px;
+mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+Ambient glow blobs — position absolute, blur(120px), opacity 5–10% in dark / 3–5% in light:
+html<div style="background:#627EEA; opacity:0.08; filter:blur(120px); border-radius:50%; width:400px; height:400px; position:absolute; top:-100px; left:-100px; pointer-events:none;"></div>
+Section alternation (no <hr>): alternate var(--btc-bg) ↔ var(--btc-surface) with padding: 6rem 0.
+
+Shadows — Colored Only, No Pure Black
+All shadows use indigo/blue tints. Never rgba(0,0,0,x) alone as a primary shadow. Always use var(--btc-shadow-*) tokens.
+
+Animations
+css@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-20px); }
+}
+@keyframes ping {
+  0%   { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.animate-float   { animation: float 8s ease-in-out infinite; }
+.animate-spin-slow    { animation: spin 10s linear infinite; }
+.animate-spin-reverse { animation: spin 15s linear infinite reverse; }
+Interaction speed: hover transitions duration: 300ms. Button hover: scale(1.05). Card hover: translateY(-4px). Image hover: scale(1.1).
+
+Layout
+
+Container: max-width: 1280px, centered, padding: 0 1.5rem
+Section padding: padding: 6rem 0
+Card grids: gap: 2rem, mobile-first (1 col → 2 col at md → 3 col at lg)
+Pricing: always 3-col, popular tier scale(1.05) + border-color: var(--btc-primary) + elevated z-index
+
+
+Bold Non-Generic Choices (must implement)
+
+Gradient text on last 1–2 words of every hero headline
+Spinning orbital rings in hero graphic (two concentric rings, opposite rotation)
+Corner border accents on feature cards (border-top + border-left on top-left corner in var(--btc-primary))
+Pulsing live badge with animate-ping dot on status indicators
+Watermark icons in card backgrounds, opacity: 0.05 default → opacity: 0.15 on hover
+Asymmetric pricing scale: popular tier visually elevated, others opacity: 0.8
+Glass morphism combined with visible grid pattern through the blur
+
+
+Accessibility
+
+All interactive elements: focus-visible: ring 2px var(--btc-primary)
+Contrast: white on #030304 = 21:1 (AAA). #627EEA on dark meets AA for large text.
+Semantic HTML: proper heading hierarchy, <nav>, <section>, <button>
+@media (prefers-reduced-motion: reduce) — disable float and spin animations
+All touch targets minimum 44px
+
+
+Dark/Light Mode Toggle
+Implement via data-theme="light" on <html> tag. Toggle with a button in the navbar. Persist preference to localStorage. All colors, shadows, and textures must adapt correctly — no hardcoded values outside CSS variables.
+
+Build This
+GIS Student Portfolio — single page, sticky navbar, dark/light toggle via data-theme="light" on <html>, persisted to localStorage.
+Sections:
+
+Hero — name, tagline (gradient text), Leaflet.js decorative map background (OpenStreetMap, interactions disabled), 2 CTAs
+About — photo + bio, 3 highlight badges (university, year, research focus)
+Skills — 3 icon-node cards: GIS Software / Programming / Remote Sensing
+Projects — 3 cards with map thumbnail, tech badges, Live Demo + GitHub buttons
+Thesis — left: title + abstract + PDF button, right: Leaflet.js study area map (default Yogyakarta), pulsing "Research" badge
+Contact — 4 social icon links (Email, LinkedIn, GitHub, ResearchGate) + terminal-style form
+
+Leaflet from unpkg.com/leaflet@1.9.4. Pure HTML/CSS/JS, one file.
+Sonnet 4.6

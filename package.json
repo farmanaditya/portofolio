@@ -1,0 +1,13 @@
+{
+  "name": "farmanaditya-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GIS portfolio of Farmana Ditya — single-page static site styled with the Ethereum DeFi design system.",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

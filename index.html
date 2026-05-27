@@ -1,208 +1,415 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farmana Ditya | GIS Portfolio</title>
-  <!-- Google Fonts: Montserrat for all text -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Leaflet CSS -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GIS Portfolio of Farmana Ditya — spatial analysis, cartography, web GIS, and remote sensing." />
+  <title>Farmana Ditya — GIS Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Header & Navigation -->
-  <header class="site-header">
-    <div class="container nav-flex">
-      <a href="#home" class="navbar-brand d-flex align-items-center">
-        <img src="assets/logo_fd_full.png" alt="FD Logo" class="me-2 img-fluid logo-img">
-        <!-- <span class="fw-bold">/span> -->
+  <!-- Sticky Nav -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <img src="assets/logo_fd_full.png" alt="FD" class="brand-logo" />
       </a>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <!-- <li><a href="#map">Interactive Map</a></li> -->
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-          <li><a href="https://medium.com/@farmanaditya" target="_blank" rel="noopener">Blog</a></li>
-        </ul>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <button id="darkModeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <div class="nav-actions">
+        <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Resume</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="navBurger" class="nav-burger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Hero/Bio Section -->
-  <section id="home" class="hero-section">
-    <div class="container hero-flex">
-      <div class="hero-bio">
-        <h1>Farmana Ditya's GIS Portfolio</h1>
-        <p>
-          <!-- Replace with your bio -->
-          Final-year GIS student at Universitas Gadjah Mada, passionate about spatial analysis, cartography, and web mapping. Skilled in GIS applications (ArcGIS, ENVI, QGIS), web GIS development, and basic programming for geospatial problem-solving, as well as surveying and geospatial data processing. Dedicated to applying geospatial technology to solve real-world challenges.
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div id="heroMap" class="hero-map" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="glow glow-1" aria-hidden="true"></div>
+    <div class="glow glow-2" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="badge badge-mono">
+          <span class="ping-dot"><span class="ping"></span><span class="dot"></span></span>
+          Available for Collaboration
+        </span>
+        <h1 class="hero-title">
+          Mapping Data into <span class="grad-text">Spatial Insight</span>
+        </h1>
+        <p class="hero-subtitle">
+          Hi, I'm <strong>Farmana Ditya</strong> — a final-year GIS student at
+          Universitas Gadjah Mada. I build spatial analyses, cartographic
+          visualizations, and web maps that turn raw geodata into
+          institutional-grade insight.
         </p>
-        <ul class="skills-list">
-          <li>ArcGIS, QGIS, ENVI, Agisoft, AutoCAD</li>
-          <li>Python, JavaScript, HTML, SQL, Leaflet.js</li>
-          <li>Remote Sensing, Image Processing</li>
-          <li>Data Acquisition & Processing</li>
-          <li>Cartography, Visualization</li>
-          <li>Project Management & Communication</li>
-        </ul>
-        <div class="social-links">
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/farmanaditya" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://medium.com/@farmanaditya" target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            View Projects <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-num">15+</span>
+            <span class="meta-label">Maps Designed</span>
+          </div>
+          <div class="meta-divider"></div>
+          <div class="meta-item">
+            <span class="meta-num">6+</span>
+            <span class="meta-label">GIS Projects</span>
+          </div>
+          <div class="meta-divider"></div>
+          <div class="meta-item">
+            <span class="meta-num">5</span>
+            <span class="meta-label">Years on GIS</span>
+          </div>
         </div>
       </div>
-      <div class="hero-img">
-  <!-- Replace with your photo -->
-  <img src="assets/profile.png" alt="Profile Photo">
+
+      <div class="hero-graphic" aria-hidden="true">
+        <div class="orbit orbit-outer"></div>
+        <div class="orbit orbit-inner"></div>
+        <div class="hero-node">
+          <img src="assets/logo_fd.png" alt="Farmana Ditya logo" />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Lightbox Modal for Full Map Preview -->
-  <div id="mapLightbox" class="map-lightbox">
-    <span class="map-lightbox-close" id="mapLightboxClose">&times;</span>
-    <img class="map-lightbox-img" id="mapLightboxImg" src="" alt="Full Map Preview">
-  </div>
+  <!-- About -->
+  <section id="about" class="section section-alt">
+    <div class="container about-grid">
+      <div class="about-photo">
+        <div class="photo-frame">
+          <img src="assets/profile.png" alt="Portrait of Farmana Ditya" />
+        </div>
+        <div class="photo-deco" aria-hidden="true"></div>
+      </div>
+      <div class="about-content">
+        <span class="label-mono">// About</span>
+        <h2 class="section-title">A GIS student building <span class="grad-text">trustworthy geodata</span>.</h2>
+        <p class="section-lead">
+          I focus on spatial analysis, cartography, and web mapping — turning
+          satellite imagery, field surveys, and tabular records into clear,
+          decision-grade products. I value precision, reproducibility, and clean
+          visual hierarchy.
+        </p>
+        <div class="badge-row">
+          <span class="badge badge-primary">
+            <i class="fa-solid fa-graduation-cap"></i> Universitas Gadjah Mada
+          </span>
+          <span class="badge badge-primary">
+            <i class="fa-solid fa-calendar-check"></i> Final Year, 2025
+          </span>
+          <span class="badge badge-accent">
+            <i class="fa-solid fa-satellite-dish"></i> Remote Sensing &amp; Web GIS
+          </span>
+        </div>
+        <div class="social-row">
+          <a href="https://github.com/farmanaditya" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://medium.com/@farmanaditya" target="_blank" rel="noopener" class="social-icon" aria-label="Medium">
+            <i class="fab fa-medium"></i>
+          </a>
+          <a href="#" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="mailto:farmanaalya21@gmail.com" class="social-icon" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section">
+  <!-- Skills -->
+  <section id="skills" class="section">
     <div class="container">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <!-- Example Project Card -->
-        <div class="project-card">
-          <img src="assets/storymap1.jpg" alt="StoryMap Screenshot">
-          <div class="project-info">
-            <h3>Swasembada Balekerto StoryMap</h3>
-            <p>An ArcGIS StoryMap showcasing public information and documentation of the KKN-PPM UGM activities in Balekerto Village, highlighting its geography, culture, and community potential.</p>
-            <a href="https://arcg.is/1Sb8au0" target="_blank" rel="noopener" class="project-link">View StoryMap</a>
+      <div class="section-head">
+        <span class="label-mono">// Skills</span>
+        <h2 class="section-title">A toolkit forged for <span class="grad-text">spatial precision</span>.</h2>
+        <p class="section-lead">
+          Three pillars define how I work: industry-standard GIS software,
+          programming for automation, and remote sensing for global-scale
+          observation.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card feature-card">
+          <span class="corner-accent" aria-hidden="true"></span>
+          <div class="icon-node">
+            <i class="fa-solid fa-layer-group"></i>
           </div>
-        </div>
-        <div class="project-card">
-          <img src="assets/UEVI.jpg" alt="ArcGIS Online Project">
-          <div class="project-info">
-            <h3>UEVI Earth Engine App</h3>
-            <p>Developed an interactive Google Earth Engine App to visualize the Urban Ecological Vulnerability Index (UEVI) in Sukoharjo, enabling year-by-year comparison through a dynamic swipe interface.</p>
-            <a href="https://ee-sdg-farmanaditya.projects.earthengine.app/view/uevi-in-sukoharjo" target="_blank" rel="noopener" class="project-link">View App</a>
+          <h3>GIS Software</h3>
+          <p>Building, editing, and analyzing geodata across the leading desktop and online GIS stacks.</p>
+          <ul class="tag-list">
+            <li>ArcGIS Pro</li>
+            <li>QGIS</li>
+            <li>ENVI</li>
+            <li>Agisoft</li>
+            <li>AutoCAD</li>
+          </ul>
+          <i class="fa-solid fa-layer-group watermark" aria-hidden="true"></i>
+        </article>
+
+        <article class="card feature-card">
+          <span class="corner-accent" aria-hidden="true"></span>
+          <div class="icon-node">
+            <i class="fa-solid fa-code"></i>
           </div>
-        </div>
-        <div class="project-card">
-          <img src="assets/bangalore1.png" alt="Custom Web GIS">
-          <div class="project-info">
-            <h3>Restaurant Service Coverage Analysis using Python</h3>
-            <p>Conducted and visualized a geospatial data science project analyzing restaurant distribution and service coverage in Bangalore using Python, spatial analysis, and visualization to identify market patterns and business opportunities.</p>
-            <a href="https://medium.com/@farmanaditya/geospatial-data-science-for-restaurant-service-analysis-40eec2b22f1f" target="_blank" rel="noopener" class="project-link">View Article and Source Code</a>
+          <h3>Programming</h3>
+          <p>Automating geoprocessing, building web maps, and shipping interactive geospatial dashboards.</p>
+          <ul class="tag-list">
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>SQL</li>
+            <li>Leaflet.js</li>
+            <li>HTML / CSS</li>
+          </ul>
+          <i class="fa-solid fa-code watermark" aria-hidden="true"></i>
+        </article>
+
+        <article class="card feature-card">
+          <span class="corner-accent" aria-hidden="true"></span>
+          <div class="icon-node">
+            <i class="fa-solid fa-satellite"></i>
           </div>
-        </div>
-         <div class="project-card">
-          <img src="assets/folium map.png" alt="Custom Web GIS">
-          <div class="project-info">
-            <h3>Mapping the Global Footprint of COVID-19 with Python</h3>
-            <p>Conducted and visualized a global COVID-19 case analysis wtih Python, combining statistical comparisons and geospatial mapping to identify patterns, hotspots, and regional impacts of the pandemic.</p>
-            <a href="https://medium.com/@farmanaditya/mapping-the-global-footprint-of-covid-19-with-python-ec49d7509e6c" target="_blank" rel="noopener" class="project-link">View Article and Source Code</a>
+          <h3>Remote Sensing</h3>
+          <p>Extracting land cover, environmental change, and vulnerability signals from satellite imagery.</p>
+          <ul class="tag-list">
+            <li>Google Earth Engine</li>
+            <li>Sentinel-2</li>
+            <li>Landsat</li>
+            <li>Random Forest</li>
+            <li>Image Processing</li>
+          </ul>
+          <i class="fa-solid fa-satellite watermark" aria-hidden="true"></i>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="label-mono">// Projects</span>
+        <h2 class="section-title">Selected work in <span class="grad-text">geospatial engineering</span>.</h2>
+        <p class="section-lead">
+          From StoryMaps to remote-sensing apps and Python-driven data science —
+          a sample of where I've shipped end-to-end.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card project-card">
+          <div class="project-thumb">
+            <img src="assets/storymap1.jpg" alt="Swasembada Balekerto StoryMap" loading="lazy" />
           </div>
-        </div>
-        <div class="project-card">
-          <img src="assets/choropleth globwarm.png" alt="Custom Web GIS">
-          <div class="project-info">
-            <h3>Mapping Global Warming Through Data with Python</h3>
-            <p>Conducted and visualized a geospatial data science project analyzing global temperature trends using Python, interactive mapping, and statistical analysis to uncover patterns of climate change.</p>
-            <a href="https://medium.com/@farmanaditya/tracking-global-warming-through-data-and-maps-with-python-05b01aa272c2" target="_blank" rel="noopener" class="project-link">View Article and Source Code</a>
-          </div>
-        </div>
-        <!-- Tableau Visualization Project Card -->
-        <div class="project-card">
-          <div class="project-info">
-            <h3>CO2 Emission Per Capita Visualization</h3>
-            <p>Interactive dashboard visualizing CO2 emissions per capita using Tableau Public. Explore global and regional emission patterns with dynamic charts and maps.</p>
-            <!-- Tableau Public Embed Landscape -->
-            <div class='tableauPlaceholder tableau-landscape' id='viz1754928524405'>
-              <noscript><a href='#'><img alt='CO2 (Emission Per Capita) ' src='https://public.tableau.com/static/images/QQ/QQPZX7X3B/1_rss.png' style='border: none' /></a></noscript>
-              <object class='tableauViz'>
-                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                <param name='embed_code_version' value='3' />
-                <param name='path' value='shared/QQPZX7X3B' />
-                <param name='toolbar' value='yes' />
-                <param name='static_image' value='https://public.tableau.com/static/images/QQ/QQPZX7X3B/1.png' />
-                <param name='animate_transition' value='yes' />
-                <param name='display_static_image' value='yes' />
-                <param name='display_spinner' value='yes' />
-                <param name='display_overlay' value='yes' />
-                <param name='display_count' value='yes' />
-                <param name='language' value='en-US' />
-                <param name='filter' value='publish=yes' />
-                <param name='filter' value='showOnboarding=true' />
-              </object>
+          <div class="project-body">
+            <div class="badge-row">
+              <span class="badge badge-mono">StoryMap</span>
+              <span class="badge badge-mono">ArcGIS</span>
             </div>
-            <a href="https://public.tableau.com/views/CO2EmissionPerCapita-VDSAcara7/CO2EmissionPerCapita?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener" class="project-link">View Tableau Dashboard</a>
-            <script type='text/javascript'>
-              var divElement = document.getElementById('viz1754928524405');
-              var vizElement = divElement.getElementsByTagName('object')[0];
-              vizElement.style.width = '100%';
-              vizElement.style.height = '200px'; // Landscape aspect ratio
-              var scriptElement = document.createElement('script');
-              scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-              vizElement.parentNode.insertBefore(scriptElement, vizElement);
-            </script>
+            <h3>Swasembada Balekerto StoryMap</h3>
+            <p>Public information and documentation of KKN-PPM UGM activities in Balekerto Village — geography, culture, and community potential.</p>
+            <div class="card-actions">
+              <a href="https://arcg.is/1Sb8au0" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+              </a>
+            </div>
           </div>
-        </div>
-        <!-- Add more project cards as needed -->
+        </article>
+
+        <article class="card project-card">
+          <div class="project-thumb">
+            <img src="assets/UEVI.jpg" alt="UEVI Earth Engine App" loading="lazy" />
+          </div>
+          <div class="project-body">
+            <div class="badge-row">
+              <span class="badge badge-mono">GEE</span>
+              <span class="badge badge-mono">Remote Sensing</span>
+            </div>
+            <h3>UEVI Earth Engine App</h3>
+            <p>Interactive Google Earth Engine app visualizing Urban Ecological Vulnerability Index (UEVI) in Sukoharjo via a year-by-year swipe interface.</p>
+            <div class="card-actions">
+              <a href="https://ee-sdg-farmanaditya.projects.earthengine.app/view/uevi-in-sukoharjo" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live App
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-thumb">
+            <img src="assets/bangalore1.png" alt="Restaurant Service Coverage Analysis" loading="lazy" />
+          </div>
+          <div class="project-body">
+            <div class="badge-row">
+              <span class="badge badge-mono">Python</span>
+              <span class="badge badge-mono">Geo Data Science</span>
+            </div>
+            <h3>Restaurant Service Coverage — Bangalore</h3>
+            <p>Geospatial data science project analyzing restaurant distribution and service coverage in Bangalore using Python, spatial analysis, and visualization.</p>
+            <div class="card-actions">
+              <a href="https://medium.com/@farmanaditya/geospatial-data-science-for-restaurant-service-analysis-40eec2b22f1f" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                <i class="fa-brands fa-medium"></i> Read Article
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-thumb">
+            <img src="assets/folium map.png" alt="COVID-19 Global Mapping" loading="lazy" />
+          </div>
+          <div class="project-body">
+            <div class="badge-row">
+              <span class="badge badge-mono">Python</span>
+              <span class="badge badge-mono">Folium</span>
+            </div>
+            <h3>Mapping the Global Footprint of COVID-19</h3>
+            <p>Global COVID-19 case analysis combining statistical comparisons and geospatial mapping to identify patterns, hotspots, and regional impacts.</p>
+            <div class="card-actions">
+              <a href="https://medium.com/@farmanaditya/mapping-the-global-footprint-of-covid-19-with-python-ec49d7509e6c" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                <i class="fa-brands fa-medium"></i> Read Article
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-thumb">
+            <img src="assets/choropleth globwarm.png" alt="Global Warming Mapping" loading="lazy" />
+          </div>
+          <div class="project-body">
+            <div class="badge-row">
+              <span class="badge badge-mono">Python</span>
+              <span class="badge badge-mono">Climate</span>
+            </div>
+            <h3>Mapping Global Warming Through Data</h3>
+            <p>Analysis of global temperature trends with Python, interactive mapping, and statistical analysis to uncover patterns of climate change.</p>
+            <div class="card-actions">
+              <a href="https://medium.com/@farmanaditya/tracking-global-warming-through-data-and-maps-with-python-05b01aa272c2" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                <i class="fa-brands fa-medium"></i> Read Article
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-thumb thumb-dark">
+            <i class="fa-solid fa-chart-column thumb-icon" aria-hidden="true"></i>
+          </div>
+          <div class="project-body">
+            <div class="badge-row">
+              <span class="badge badge-mono">Tableau</span>
+              <span class="badge badge-mono">Dashboard</span>
+            </div>
+            <h3>CO₂ Emission Per Capita</h3>
+            <p>Interactive dashboard visualizing CO₂ emissions per capita using Tableau Public — explore global and regional patterns with dynamic charts and maps.</p>
+            <div class="card-actions">
+              <a href="https://public.tableau.com/views/CO2EmissionPerCapita-VDSAcara7/CO2EmissionPerCapita" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> View Dashboard
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Maps Gallery Section -->
-
-  <!-- Maps Gallery Section (Swiper.js Sliders) -->
-  <section id="gallery" class="gallery-section">
+  <!-- Gallery -->
+  <section id="gallery" class="section">
     <div class="container">
-      <h2 class="gallery-heading">Maps Gallery</h2>
+      <div class="section-head">
+        <span class="label-mono">// Maps Gallery</span>
+        <h2 class="section-title">Cartography crafted with <span class="grad-text">SNI precision</span>.</h2>
+        <p class="section-lead">
+          A curated set of thematic maps — from administrative atlases to
+          land-use, geology, and environmental analysis.
+        </p>
+      </div>
 
-      <!-- SNI-Compliant Government Maps Slider -->
+      <!-- SNI -->
       <h3 class="gallery-category">SNI-Compliant Government Maps</h3>
       <div class="swiper sni-swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="assets/peta_kota_bitung.jpg" alt="SNI Map 1" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Penggunaan Lahan Kota Bitung 2024</div>
-              <div class="gallery-desc"></div>
-            </div>
-          </div> 
-          <div class="swiper-slide">
-            <img src="assets/peta_geologi_banyuwangi.jpg" alt="SNI Map 2" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Geologi Banyuwangi 2023</div>
-              <div class="gallery-desc"></div>
+            <div class="gallery-card">
+              <img src="assets/peta_kota_bitung.jpg" alt="Peta Penggunaan Lahan Kota Bitung" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Penggunaan Lahan Kota Bitung 2024</div>
+              </div>
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="assets/tulangan_peta_batas_admin.jpg" alt="SNI Map 4" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Batas Administrasi Dusun Tulangan</div>
-              <div class="gallery-desc"></div>
+            <div class="gallery-card">
+              <img src="assets/peta_geologi_banyuwangi.jpg" alt="Peta Geologi Banyuwangi" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Geologi Banyuwangi 2023</div>
+              </div>
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="assets/tulangan_peta_persil.jpg" alt="SNI Map 5" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Persil Bangunan Dusun Tulangan</div>
-              <div class="gallery-desc"></div>
+            <div class="gallery-card">
+              <img src="assets/tulangan_peta_batas_admin.jpg" alt="Peta Batas Administrasi Dusun Tulangan" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Batas Administrasi Dusun Tulangan</div>
+              </div>
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="assets/tulangan_peta_pl.jpg" alt="Peta Dasar 3" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Penggunaan Lahan Dusun Tulangan</div>
-              <div class="gallery-desc"></div>
+            <div class="gallery-card">
+              <img src="assets/tulangan_peta_persil.jpg" alt="Peta Persil Bangunan Dusun Tulangan" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Persil Bangunan Dusun Tulangan</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-card">
+              <img src="assets/tulangan_peta_pl.jpg" alt="Peta Penggunaan Lahan Dusun Tulangan" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Penggunaan Lahan Dusun Tulangan</div>
+              </div>
             </div>
           </div>
         </div>
@@ -211,29 +418,34 @@
         <div class="swiper-button-next sni-next"></div>
       </div>
 
-      <!-- Land Use Maps Slider -->
+      <!-- Land Use -->
       <h3 class="gallery-category">Land Use Maps</h3>
       <div class="swiper landuse-swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="assets/pl-balekerto.png" alt="Land Use Map 1" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Penggunaan Lahan Balekerto 2024</div>
-              <div class="gallery-desc">Land use map of Balekerto Village created from Sentinel-2 satellite imagery using the random forest classification method in Google Earth Engine.</div>
+            <div class="gallery-card">
+              <img src="assets/pl-balekerto.png" alt="Peta Penggunaan Lahan Balekerto" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Penggunaan Lahan Balekerto 2024</div>
+                <div class="gallery-desc">Sentinel-2 imagery classified using random forest in Google Earth Engine.</div>
+              </div>
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="assets/land_use_bantul.jpg" alt="Land Use Map 2" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Penggunaan Lahan Sebagian Wilayah DIY</div>
-              <div class="gallery-desc">Land use map of Bantul classified using supervised maximum likelihood in ENVI, verified with field accuracy tests.</div>
+            <div class="gallery-card">
+              <img src="assets/land_use_bantul.jpg" alt="Land Use Bantul" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Penggunaan Lahan DIY</div>
+                <div class="gallery-desc">Supervised maximum-likelihood classification in ENVI, verified with field accuracy testing.</div>
+              </div>
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="assets/peta_pl_banyuwangi.jpg" alt="Land Use Map 3" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Penggunaan Lahan Banyuwangi 2022</div>
-              <div class="gallery-desc"></div>
+            <div class="gallery-card">
+              <img src="assets/peta_pl_banyuwangi.jpg" alt="Land Use Banyuwangi" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Penggunaan Lahan Banyuwangi 2022</div>
+              </div>
             </div>
           </div>
         </div>
@@ -242,64 +454,80 @@
         <div class="swiper-button-next landuse-next"></div>
       </div>
 
-      <!-- Other Thematic Maps Slider -->
+      <!-- Thematic -->
       <h3 class="gallery-category">Other Thematic Maps</h3>
       <div class="swiper thematic-swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="assets/garis pantai multi tahun.jpg" alt="Coastal Map 1" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Garis Pantai Multi Tahun 2023</div>
-              <div class="gallery-desc">Map of shoreline changes and tidal zones based on multi-temporal analysis.</div>
+            <div class="gallery-card">
+              <img src="assets/garis pantai multi tahun.jpg" alt="Peta Garis Pantai" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Garis Pantai Multi-Tahun 2023</div>
+                <div class="gallery-desc">Shoreline change and tidal zones from multi-temporal analysis.</div>
+              </div>
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="assets/geomorfologi.jpg" alt="Marine Map 1" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Geomorfologi 2023</div>
-              <div class="gallery-desc">Map of geomorphological distribution and coastal ecosystems based on imagery interpretation and surveys.</div>
-            </div>
-          </div>
-           <div class="swiper-slide">
-            <img src="assets/peta_arah_angin_merapi.jpg" alt="Thematic Map 1" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Arah Angin Merapi</div>
-              <div class="gallery-desc">Map of wind direction distribution around Merapi based on meteorological data analysis.</div>
-            </div>
-          </div>
-           <div class="swiper-slide">
-            <img src="assets/peta_kontur_merapi.jpg" alt="Thematic Map 2" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Kontur Merapi</div>
-              <div class="gallery-desc">Map of contour and elevation distribution of Merapi based on topographic data analysis.</div>
-            </div>
-          </div>
-           <div class="swiper-slide">
-            <img src="assets/peta_cat_bantul_sleman.jpg" alt="Thematic Map 3" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Tinggi Muka Air Tanah Wilayah Bantul - Sleman</div>
-              <div class="gallery-desc">This map shows the distribution of groundwater table elevation in the Groundwater Basin (CAT) of Bantul and Sleman Regencies.</div>
-            </div>
-          </div>
-             <div class="swiper-slide">
-            <img src="assets/peta penduduk.png" alt="Thematic Map 4" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Jumlah Penduduk Kapanewon Panggang, Kabupaten Gunungkidul</div>
-              <div class="gallery-desc">This map shows the population density distribution in the Kapanewon Panggang area, Gunungkidul Regency.</div>
-            </div>
-          </div>
-             <div class="swiper-slide">
-            <img src="assets/peta_penerbangan.jpg" alt="Thematic Map 5" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Aliran Penumpang Penerbangan Dalam Negeri dari Yogyakarta</div>
-              <div class="gallery-desc">This map shows the distribution of flight routes and airports in the Yogyakarta region.</div>
+            <div class="gallery-card">
+              <img src="assets/geomorfologi.jpg" alt="Peta Geomorfologi" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Geomorfologi 2023</div>
+                <div class="gallery-desc">Geomorphological distribution and coastal ecosystems from imagery interpretation and surveys.</div>
+              </div>
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="assets/isohyet.jpg" alt="Rainfall Map 1" class="gallery-img">
-            <div class="gallery-caption">
-              <div class="gallery-title">Peta Hujan Wilayah DAS Bogownto </div>
-              <div class="gallery-desc">Map of average rainfall distribution using the isohyet method.</div>
+            <div class="gallery-card">
+              <img src="assets/peta_arah_angin_merapi.jpg" alt="Peta Arah Angin Merapi" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Arah Angin Merapi</div>
+                <div class="gallery-desc">Wind direction distribution around Merapi from meteorological data.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-card">
+              <img src="assets/peta_kontur_merapi.jpg" alt="Peta Kontur Merapi" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Kontur Merapi</div>
+                <div class="gallery-desc">Contour and elevation distribution of Merapi from topographic data.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-card">
+              <img src="assets/peta_cat_bantul_sleman.jpg" alt="Peta CAT Bantul-Sleman" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Tinggi Muka Air Tanah Bantul–Sleman</div>
+                <div class="gallery-desc">Groundwater table elevation across the Bantul-Sleman groundwater basin (CAT).</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-card">
+              <img src="assets/peta penduduk.png" alt="Peta Penduduk" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Jumlah Penduduk Kapanewon Panggang</div>
+                <div class="gallery-desc">Population density distribution in Kapanewon Panggang, Gunungkidul.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-card">
+              <img src="assets/peta_penerbangan.jpg" alt="Peta Penerbangan" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Aliran Penumpang Penerbangan Yogyakarta</div>
+                <div class="gallery-desc">Flight routes and passenger flow from Yogyakarta.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-card">
+              <img src="assets/isohyet.jpg" alt="Peta Isohyet" class="gallery-img" loading="lazy" />
+              <div class="gallery-caption">
+                <div class="gallery-title">Peta Hujan DAS Bogowonto</div>
+                <div class="gallery-desc">Average rainfall distribution using the isohyet method.</div>
+              </div>
             </div>
           </div>
         </div>
@@ -308,268 +536,134 @@
         <div class="swiper-button-next thematic-next"></div>
       </div>
     </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Map preview">
+      <button id="lightboxClose" class="lightbox-close" aria-label="Close">&times;</button>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="" />
+    </div>
   </section>
-  <!-- Swiper.js CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Interactive Map Section
-  <section id="map" class="map-section">
-    <div class="container">
-      <h2>Interactive Map</h2>
-      <div id="leaflet-map"></div>
-
-
-  <-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="container contact-flex">
-      <div class="contact-info">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out for collaborations or GIS-related inquiries.</p>
-        <ul class="contact-social">
-          <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-          <li><a href="https://github.com/farmanaditya" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a></li>
-          <li><a href="https://medium.com/@farmanaditya" target="_blank" rel="noopener"><i class="fab fa-medium"></i> Medium</a></li>
-          <li><a href="mailto:farmanaalya21@gmail.com"><i class="fa-solid fa-envelope"></i> farmanaalya21@gmail.com</a></li>
+  <!-- Research / Thesis -->
+  <section id="research" class="section section-alt">
+    <div class="container research-grid">
+      <div class="research-content">
+        <span class="label-mono">// Current Research</span>
+        <span class="badge badge-accent">
+          <span class="ping-dot"><span class="ping"></span><span class="dot"></span></span>
+          Research In Progress
+        </span>
+        <h2 class="section-title">Mapping urban sprawl in <span class="grad-text">Kabupaten Sukoharjo</span>.</h2>
+        <p class="section-lead">
+          My undergraduate research detects and quantifies indications of
+          urban sprawl across Kabupaten Sukoharjo using the
+          <strong>Shannon entropy index</strong> — combining multi-temporal
+          satellite imagery and built-up area analysis to measure how compact
+          or dispersed the region's urban growth has become.
+        </p>
+        <ul class="check-list">
+          <li><i class="fa-solid fa-check"></i> Shannon entropy index for urban dispersion</li>
+          <li><i class="fa-solid fa-check"></i> Multi-temporal built-up area extraction</li>
+          <li><i class="fa-solid fa-check"></i> Land cover change detection</li>
+          <li><i class="fa-solid fa-check"></i> Spatial pattern &amp; growth direction analysis</li>
         </ul>
+        <div class="hero-cta">
+          <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn btn-primary">
+            <i class="fa-solid fa-file-arrow-down"></i> Download CV
+          </a>
+          <a href="#contact" class="btn btn-outline">Discuss Research</a>
+        </div>
       </div>
-      <!-- <form class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form> -->
+
+      <div class="research-map-wrap">
+        <div class="map-frame">
+          <div id="researchMap" class="research-map"></div>
+        </div>
+        <div class="map-caption">
+          <span class="label-mono">Study Area</span>
+          <span>Kabupaten Sukoharjo, Central Java</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="label-mono">// Contact</span>
+        <h2 class="section-title">Let's build something <span class="grad-text">geospatially meaningful</span>.</h2>
+        <p class="section-lead">
+          Open to collaborations on cartography, GIS analysis, web mapping, and
+          remote sensing research. Pick the channel that fits.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <a href="mailto:farmanaalya21@gmail.com" class="card contact-card">
+          <div class="icon-node"><i class="fa-solid fa-envelope"></i></div>
+          <h3>Email</h3>
+          <p>farmanaalya21@gmail.com</p>
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="card contact-card">
+          <div class="icon-node"><i class="fab fa-linkedin"></i></div>
+          <h3>LinkedIn</h3>
+          <p>Connect professionally</p>
+        </a>
+        <a href="https://github.com/farmanaditya" target="_blank" rel="noopener" class="card contact-card">
+          <div class="icon-node"><i class="fab fa-github"></i></div>
+          <h3>GitHub</h3>
+          <p>@farmanaditya</p>
+        </a>
+        <a href="https://medium.com/@farmanaditya" target="_blank" rel="noopener" class="card contact-card">
+          <div class="icon-node"><i class="fab fa-medium"></i></div>
+          <h3>Medium</h3>
+          <p>Read my articles</p>
+        </a>
+      </div>
+
+      <form class="contact-form card" id="contactForm" autocomplete="off">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me what you're working on..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+      </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <span>&copy; 2025 farmanaditya All rights reserved.</span>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo_fd_full.png" alt="FD" class="brand-logo" />
+        <p>Building geospatial systems that turn data into trust.</p>
+      </div>
+      <div class="footer-meta">
+        <span>&copy; <span id="year"></span> Farmana Ditya. All rights reserved.</span>
+        <span class="label-mono">Built with HTML · CSS · JS · Leaflet</span>
+      </div>
     </div>
   </footer>
 
-  <!-- Leaflet JS -->
+  <!-- Leaflet -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <!-- Leaflet Plugins -->
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
-  <!-- Main JS -->
-  <script src="script.js"></script>
-
-  <!-- Swiper.js JS -->
+  <!-- Swiper -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    // Lightbox functionality for map images
-    document.addEventListener('DOMContentLoaded', function() {
-      const lightbox = document.getElementById('mapLightbox');
-      const lightboxImg = document.getElementById('mapLightboxImg');
-      const lightboxClose = document.getElementById('mapLightboxClose');
-      document.querySelectorAll('.gallery-img').forEach(function(img) {
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function() {
-          lightboxImg.src = img.src;
-          lightbox.classList.add('active');
-        });
-      });
-      lightboxClose.addEventListener('click', function() {
-        lightbox.classList.remove('active');
-        lightboxImg.src = '';
-      });
-      lightbox.addEventListener('click', function(e) {
-        if (e.target === lightbox) {
-          lightbox.classList.remove('active');
-          lightboxImg.src = '';
-        }
-      });
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          lightbox.classList.remove('active');
-          lightboxImg.src = '';
-        }
-      });
-    });
-  </script>
-  <script>
-    // SNI Maps Swiper
-    new Swiper('.sni-swiper', {
-      loop: true,
-      autoplay: { delay: 4000, disableOnInteraction: false },
-      navigation: { nextEl: '.sni-next', prevEl: '.sni-prev' },
-      pagination: { el: '.sni-pagination', clickable: true },
-      slidesPerView: 1,
-      spaceBetween: 24,
-    });
-    // Land Use Maps Swiper
-    new Swiper('.landuse-swiper', {
-      loop: true,
-      autoplay: { delay: 4000, disableOnInteraction: false },
-      navigation: { nextEl: '.landuse-next', prevEl: '.landuse-prev' },
-      pagination: { el: '.landuse-pagination', clickable: true },
-      slidesPerView: 1,
-      spaceBetween: 24,
-    });
-    // Thematic Maps Swiper
-    new Swiper('.thematic-swiper', {
-      loop: true,
-      autoplay: { delay: 4000, disableOnInteraction: false },
-      navigation: { nextEl: '.thematic-next', prevEl: '.thematic-prev' },
-      pagination: { el: '.thematic-pagination', clickable: true },
-      slidesPerView: 1,
-      spaceBetween: 24,
-    });
-  </script>
-  <style>
-    .gallery-heading {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      font-size: 2.1rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-    .gallery-category {
-      margin-top: 2.5rem;
-      margin-bottom: 1.1rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-      text-align: center;
-      color: #2a2a2a;
-    }
-    .swiper {
-      width: 100%;
-      max-width: 700px;
-      margin: 0 auto 2.5rem auto;
-      background: transparent;
-      border-radius: 18px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      padding: 1.5rem 0 2.5rem 0;
-    }
-    /* Lightbox styles */
-    .map-lightbox {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      transition: opacity 0.2s;
-    }
-    .map-lightbox.active {
-      display: flex;
-    }
-    .map-lightbox-img {
-      max-width: 92vw;
-      max-height: 88vh;
-      border-radius: 14px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.25);
-      background: #fff;
-      object-fit: contain;
-    }
-    .map-lightbox-close {
-      position: absolute;
-      top: 32px;
-      right: 48px;
-      font-size: 2.5rem;
-      color: #fff;
-      cursor: pointer;
-      z-index: 10001;
-      font-weight: bold;
-      text-shadow: 0 2px 8px #000;
-      transition: color 0.2s;
-    }
-  .map-lightbox-close:hover {
-    color: #ff5252;
-  }
-  .swiper-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    border-radius: 18px;
-    height: auto;
-    text-align: center;
-  }
-    .gallery-img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      height: 50vw;
-      max-width: 100%;
-      max-height: 60vh;
-      min-height: 220px;
-      object-fit: contain;
-      border-radius: 14px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      margin-bottom: 1rem;
-      background: #f5f5f5;
-      transition: box-shadow 0.2s;
-    }
-    @media (max-width: 900px) {
-      .gallery-img {
-        height: 60vw;
-        min-height: 160px;
-      }
-    }
-    @media (max-width: 600px) {
-      .gallery-img {
-        height: 70vw;
-        min-height: 120px;
-      }
-    }
-    .gallery-caption {
-      text-align: center;
-      margin-bottom: 0.2rem;
-    }
-    .gallery-title {
-      font-size: 1.08rem;
-      color: #222;
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-    .gallery-desc {
-      font-size: 0.98rem;
-      color: #444;
-      font-weight: 400;
-      margin-bottom: 0.2rem;
-    }
-    .swiper-button-next, .swiper-button-prev {
-      color: #1a1a1a;
-      background: #fff;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      width: 38px;
-      height: 38px;
-      top: 45%;
-    }
-    .swiper-pagination-bullet {
-      background: #888;
-      opacity: 1;
-    }
-    .swiper-pagination-bullet-active {
-      background: #1a1a1a;
-    }
-    @media (max-width: 768px) {
-      .gallery-img {
-        max-width: 95vw;
-        height: 180px;
-      }
-      .swiper {
-        padding: 1rem 0 2rem 0;
-      }
-    }
-    @media (max-width: 480px) {
-      .gallery-img {
-        height: 120px;
-      }
-      .swiper {
-        padding: 0.5rem 0 1.2rem 0;
-      }
-    }
-  </style>
+  <!-- App script -->
+  <script src="script.js"></script>
 </body>
 </html>

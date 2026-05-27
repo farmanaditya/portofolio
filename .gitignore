@@ -1,0 +1,9 @@
+.vercel
+.DS_Store
+node_modules
+.env
+.env.local
+*.log
+
+# Large local-only datasets (not used by the site)
+BanjirBekasi.json
