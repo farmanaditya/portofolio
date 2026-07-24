@@ -471,9 +471,10 @@ p { margin: 0 0 1rem; color: var(--btc-muted); }
 ----------------------------- */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1fr;
   gap: 4rem;
   align-items: center;
+  max-width: 820px;
 }
 
 .about-photo {

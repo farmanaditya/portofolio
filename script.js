@@ -172,17 +172,26 @@
     });
   }
 
-  // ---------- Contact form (no backend — graceful UX) ----------
+  // ---------- Contact form (no backend — opens email client via mailto) ----------
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
+  const CONTACT_EMAIL = 'farmanaalya21@gmail.com';
   if (form && status) {
     form.addEventListener('submit', e => {
       e.preventDefault();
       const name = form.name.value.trim();
-      if (!name) return;
-      status.textContent = `> Thanks ${name}, message captured locally. I'll reach back via email.`;
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if (!name || !email || !message) return;
+
+      const subject = `Portfolio contact from ${name}`;
+      const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+      const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+
+      status.textContent = `> Thanks ${name}! Your email app is opening — just hit send.`;
       form.reset();
-      setTimeout(() => (status.textContent = ''), 6000);
+      setTimeout(() => (status.textContent = ''), 8000);
     });
   }
 })();
