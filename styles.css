@@ -1,5 +1,5 @@
 /* =============================================================
-   Farmana Ditya — GIS Portfolio
+   Farmana Ditya | GIS Portfolio
    Design system: Ethereum DeFi (institutional-grade, indigo glow)
    ============================================================= */
 
@@ -379,7 +379,7 @@ p { margin: 0 0 1rem; color: var(--btc-muted); }
   background: var(--btc-border);
 }
 
-/* Hero graphic — orbital rings */
+/* Hero graphic: orbital rings */
 .hero-graphic {
   position: relative;
   width: 100%;

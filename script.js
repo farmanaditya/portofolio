@@ -1,5 +1,5 @@
 /* =============================================================
-   Farmana Ditya — GIS Portfolio
+   Farmana Ditya | GIS Portfolio
    Interactions: theme toggle, Leaflet maps, Swiper, lightbox, nav
    ============================================================= */
 
@@ -177,7 +177,7 @@
     });
   }
 
-  // ---------- Contact form (no backend — opens email client via mailto) ----------
+  // ---------- Contact form (no backend; opens email client via mailto) ----------
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
   const CONTACT_EMAIL = 'farmanaalya21@gmail.com';
@@ -194,7 +194,7 @@
       const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
 
-      status.textContent = `> Thanks ${name}! Your email app is opening — just hit send.`;
+      status.textContent = `> Thanks ${name}! Your email app is opening. Just hit send.`;
       form.reset();
       setTimeout(() => (status.textContent = ''), 8000);
     });
