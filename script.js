@@ -131,6 +131,11 @@
       slidesPerView: 1,
       spaceBetween: 24,
     };
+    new Swiper('.finalproject-swiper', {
+      ...baseConfig,
+      navigation: { nextEl: '.finalproject-next', prevEl: '.finalproject-prev' },
+      pagination: { el: '.finalproject-pagination', clickable: true },
+    });
     new Swiper('.sni-swiper', {
       ...baseConfig,
       navigation: { nextEl: '.sni-next', prevEl: '.sni-prev' },
