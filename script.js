@@ -123,6 +123,21 @@
     }
   }
 
+  // ---------- Preload slider images ----------
+  // Lazy images in off-screen slides are clipped by the slider and never
+  // load until shown, so load a slider's images once it nears the viewport.
+  const sliderObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.querySelectorAll('img[loading="lazy"]').forEach(img => (img.loading = 'eager'));
+        sliderObserver.unobserve(e.target);
+      });
+    },
+    { rootMargin: '600px 0px' }
+  );
+  document.querySelectorAll('.swiper').forEach(s => sliderObserver.observe(s));
+
   // ---------- Swiper sliders ----------
   if (window.Swiper) {
     const baseConfig = {
@@ -161,7 +176,7 @@
   if (lightbox && lightboxImg && lightboxClose) {
     document.querySelectorAll('.gallery-img').forEach(img => {
       img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
+        lightboxImg.src = img.dataset.full || img.src;
         lightboxImg.alt = img.alt || 'Map preview';
         lightbox.classList.add('active');
       });
